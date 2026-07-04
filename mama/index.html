@@ -1,0 +1,691 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ママすきレベルしんだん👑💖</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --pink:#ff7eb3; --pink-d:#f2568f; --purple:#b18cff; --gold:#f5c542; --gold-d:#d9a520;
+    --text:#5a4a5f;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{height:100%}
+  body{
+    font-family:'Zen Maru Gothic','Hiragino Maru Gothic ProN','ヒラギノ丸ゴ ProN',sans-serif;
+    background:linear-gradient(160deg,#ffd6e8 0%,#ffe4ee 25%,#f3dcff 55%,#ffe9d6 85%,#ffd6e8 100%);
+    background-size:100% 200%;
+    animation:aurora 14s ease-in-out infinite alternate;
+    color:var(--text);
+    display:flex;align-items:center;justify-content:center;
+    overflow:hidden;font-weight:700;
+  }
+  @keyframes aurora{from{background-position:0 0}to{background-position:0 100%}}
+  /* ---------- twinkling stars ---------- */
+  .star{position:fixed;pointer-events:none;z-index:0;animation:twinkle ease-in-out infinite}
+  @keyframes twinkle{0%,100%{opacity:.1;transform:scale(.6)}50%{opacity:.9;transform:scale(1.2)}}
+  /* ---------- falling petals ---------- */
+  .petal{position:fixed;top:-40px;pointer-events:none;z-index:1;animation:petalFall linear infinite}
+  @keyframes petalFall{
+    0%{transform:translate(0,0) rotate(0)}
+    25%{transform:translate(30px,28vh) rotate(90deg)}
+    50%{transform:translate(-20px,55vh) rotate(200deg)}
+    75%{transform:translate(25px,80vh) rotate(300deg)}
+    100%{transform:translate(-10px,110vh) rotate(390deg)}
+  }
+  /* ---------- floating hearts ---------- */
+  .bg-heart{position:fixed;bottom:-60px;pointer-events:none;z-index:0;opacity:.45;animation:floatUp linear infinite}
+  @keyframes floatUp{
+    0%{transform:translateY(0) rotate(-10deg) scale(1)}
+    50%{transform:translateY(-55vh) rotate(12deg) scale(1.15)}
+    100%{transform:translateY(-115vh) rotate(-8deg) scale(.9)}
+  }
+  /* ---------- deluxe card ---------- */
+  #app{position:relative;z-index:2;width:min(560px,92vw)}
+  .card{
+    position:relative;
+    background:rgba(255,255,255,.94);
+    border-radius:34px;
+    padding:38px 28px;
+    box-shadow:
+      0 0 0 4px #fff,
+      0 0 0 8px var(--gold),
+      0 0 0 12px #fff0f6,
+      0 22px 60px rgba(242,86,143,.3),
+      0 0 60px rgba(245,197,66,.25);
+    text-align:center;
+    animation:cardIn .5s cubic-bezier(.34,1.56,.64,1);
+    overflow:hidden;
+  }
+  .card::before{ /* shimmer sweep */
+    content:'';position:absolute;top:-60%;left:-80%;width:60%;height:220%;
+    background:linear-gradient(105deg,transparent,rgba(255,255,255,.75) 50%,transparent);
+    transform:rotate(8deg);
+    animation:sweep 4.5s ease-in-out infinite;
+    pointer-events:none;
+  }
+  @keyframes sweep{0%,55%{left:-80%}85%,100%{left:160%}}
+  @keyframes cardIn{from{opacity:0;transform:translateY(40px) scale(.92)}to{opacity:1;transform:translateY(0) scale(1)}}
+  .card.out{animation:cardOut .28s ease forwards;pointer-events:none}
+  @keyframes cardOut{to{opacity:0;transform:translateY(-30px) scale(.95)}}
+  .corner{position:absolute;font-size:22px;opacity:.85;pointer-events:none}
+  .corner.tl{top:10px;left:14px}.corner.tr{top:10px;right:14px}
+  .corner.bl{bottom:10px;left:14px}.corner.br{bottom:10px;right:14px}
+  h1{
+    font-size:clamp(26px,6vw,38px);font-weight:900;line-height:1.4;
+    background:linear-gradient(90deg,#f2568f,#e8a13c,#b18cff,#f2568f);
+    background-size:250% auto;
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    animation:shine 3s linear infinite;
+  }
+  @keyframes shine{to{background-position:250% center}}
+  .sub{font-size:15px;margin-top:14px;line-height:1.9}
+  .crown{
+    font-size:44px;display:inline-block;line-height:1;
+    animation:crownBob 2s ease-in-out infinite;
+    filter:drop-shadow(0 4px 10px rgba(217,165,32,.5));
+  }
+  @keyframes crownBob{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-8px) rotate(4deg)}}
+  .big-heart{
+    font-size:60px;display:inline-block;margin:4px 0;
+    animation:beat 1.1s ease-in-out infinite;
+    filter:drop-shadow(0 6px 14px rgba(242,86,143,.45));
+  }
+  @keyframes beat{0%,100%{transform:scale(1)}15%{transform:scale(1.25)}30%{transform:scale(1)}45%{transform:scale(1.15)}60%{transform:scale(1)}}
+  /* ---------- buttons ---------- */
+  .btn{
+    display:block;width:100%;border:none;cursor:pointer;
+    font-family:inherit;font-weight:700;color:#fff;
+    font-size:17px;line-height:1.5;
+    padding:15px 18px;margin-top:14px;border-radius:50px;
+    background:linear-gradient(135deg,var(--pink),var(--pink-d));
+    box-shadow:0 6px 0 #d8437c,0 10px 20px rgba(242,86,143,.3);
+    transition:transform .12s, box-shadow .12s;
+    position:relative;z-index:1;
+  }
+  .btn:active{transform:translateY(5px);box-shadow:0 1px 0 #d8437c}
+  .btn.start{font-size:22px;padding:18px;margin-top:26px;animation:wiggle 2.2s ease-in-out infinite}
+  @keyframes wiggle{0%,100%{transform:rotate(0)}3%{transform:rotate(-2deg)}6%{transform:rotate(2deg)}9%{transform:rotate(0)}}
+  .choice{
+    background:#fff;color:var(--text);text-align:left;
+    border:3px solid #ffd3e5;box-shadow:0 5px 0 #ffd3e5;
+    display:flex;align-items:center;gap:12px;
+  }
+  .choice:active{transform:translateY(4px);box-shadow:0 1px 0 #ffd3e5}
+  .choice .em{font-size:24px;flex-shrink:0}
+  .choice:hover{border-color:var(--gold);background:#fffaf0;box-shadow:0 5px 0 #f0d9a0}
+  /* ---------- progress ---------- */
+  .prog-label{display:flex;justify-content:space-between;font-size:14px;color:#b06e91;margin-bottom:8px}
+  .prog{height:16px;background:#ffe3ef;border-radius:99px;overflow:hidden;box-shadow:inset 0 2px 4px rgba(242,86,143,.15)}
+  .prog>div{
+    height:100%;width:0%;border-radius:99px;
+    background:linear-gradient(90deg,#ffd66b,#ff7eb3,#b18cff);
+    background-size:200% auto;animation:shine 3s linear infinite;
+    transition:width .45s cubic-bezier(.34,1.3,.64,1);
+    position:relative;
+  }
+  .prog>div::after{content:'👸';position:absolute;right:-4px;top:50%;font-size:18px;transform:translateY(-50%)}
+  .q-text{font-size:clamp(19px,4.6vw,24px);font-weight:900;line-height:1.6;margin:22px 0 8px;min-height:3.2em}
+  .q-num-badge{
+    display:inline-block;background:linear-gradient(135deg,#ffe08a,var(--gold));color:#7a5c0e;font-size:14px;
+    padding:4px 18px;border-radius:99px;margin-top:18px;box-shadow:0 3px 0 var(--gold-d);
+  }
+  /* ---------- combo popup ---------- */
+  .combo{
+    position:fixed;left:50%;top:18%;z-index:60;pointer-events:none;
+    transform:translateX(-50%);
+    font-size:clamp(26px,7vw,40px);font-weight:900;white-space:nowrap;
+    background:linear-gradient(90deg,#ff5f9e,#ffb347,#ff5f9e);
+    background-size:200% auto;
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    filter:drop-shadow(0 3px 0 #fff) drop-shadow(0 6px 14px rgba(242,86,143,.5));
+    animation:comboPop 1.1s cubic-bezier(.34,1.56,.64,1) forwards, shine 1s linear infinite;
+  }
+  @keyframes comboPop{
+    0%{transform:translateX(-50%) scale(.2) rotate(-8deg);opacity:0}
+    25%{transform:translateX(-50%) scale(1.25) rotate(3deg);opacity:1}
+    45%{transform:translateX(-50%) scale(1) rotate(0)}
+    80%{transform:translateX(-50%) scale(1);opacity:1}
+    100%{transform:translateX(-50%) scale(1.1) translateY(-30px);opacity:0}
+  }
+  /* combo escalation fx */
+  .ring{
+    position:fixed;z-index:45;pointer-events:none;
+    width:20px;height:20px;border:4px solid var(--gold);border-radius:50%;
+    transform:translate(-50%,-50%);
+    animation:ringOut .75s ease-out forwards;
+  }
+  .ring.pink{border-color:var(--pink)}
+  @keyframes ringOut{
+    from{width:20px;height:20px;opacity:1;border-width:6px}
+    to{width:260px;height:260px;opacity:0;border-width:1px}
+  }
+  .flash{
+    position:fixed;inset:0;z-index:35;pointer-events:none;
+    background:radial-gradient(circle,rgba(255,230,150,.6),rgba(255,180,220,.3) 60%,transparent 85%);
+    animation:flashFade .65s ease-out forwards;
+  }
+  .flash.rainbow{
+    background:linear-gradient(90deg,rgba(255,120,160,.4),rgba(255,210,110,.4),rgba(150,225,170,.4),rgba(120,180,255,.4),rgba(205,140,255,.4));
+    animation:flashFade 1.2s ease-out forwards;
+  }
+  @keyframes flashFade{from{opacity:1}to{opacity:0}}
+  .rain{position:fixed;top:-50px;z-index:50;pointer-events:none;animation:rainFall linear forwards}
+  @keyframes rainFall{to{transform:translateY(118vh) rotate(220deg)}}
+  /* ---------- result ---------- */
+  .lv-label{font-size:16px;color:#b06e91;margin-top:6px}
+  .lv-title{
+    font-size:clamp(24px,5.8vw,34px);font-weight:900;line-height:1.5;margin:8px 0;
+    animation:pop .6s cubic-bezier(.34,1.56,.64,1);
+  }
+  @keyframes pop{from{transform:scale(.3);opacity:0}to{transform:scale(1);opacity:1}}
+  .gauge-wrap{margin:18px 0 6px}
+  .gauge{height:28px;background:#ffe3ef;border-radius:99px;overflow:hidden;box-shadow:inset 0 2px 5px rgba(242,86,143,.2)}
+  .gauge>div{
+    height:100%;width:0%;border-radius:99px;
+    background:linear-gradient(90deg,#ffd66b,#ff7eb3,#f2568f,#b18cff);
+    background-size:300% auto;animation:shine 2s linear infinite;
+    transition:width 2.2s cubic-bezier(.22,.9,.36,1);
+  }
+  .pct{font-size:clamp(40px,10vw,56px);font-weight:900;color:var(--pink-d);line-height:1.2}
+  .pct small{font-size:.45em}
+  .msg{
+    font-size:15px;line-height:2;margin-top:14px;text-align:left;
+    background:#fffaf3;border-radius:18px;padding:14px 16px;
+    border:2px dashed var(--gold);
+  }
+  .hearts-row{font-size:22px;letter-spacing:2px;margin-top:10px;min-height:1.4em}
+  .btn.again{background:linear-gradient(135deg,#b18cff,#8f6ae0);box-shadow:0 6px 0 #7a55cc,0 10px 20px rgba(143,106,224,.3)}
+  .btn.again:active{box-shadow:0 1px 0 #7a55cc}
+  .drum{font-size:20px;animation:beat .5s ease-in-out infinite}
+  /* fly heart / broken heart (answer reactions) */
+  .fly{position:fixed;z-index:50;font-size:30px;pointer-events:none;animation:fly .9s ease-out forwards}
+  @keyframes fly{
+    0%{transform:translate(0,0) scale(.6);opacity:1}
+    100%{transform:translate(var(--dx),var(--dy,-140px)) scale(1.6);opacity:0}
+  }
+  .broken{position:fixed;z-index:50;font-size:48px;pointer-events:none;
+    filter:drop-shadow(0 4px 8px rgba(90,74,95,.3));
+    animation:crack 1.1s ease-in forwards}
+  @keyframes crack{
+    0%{transform:translate(-50%,-50%) scale(.4) rotate(0);opacity:1}
+    15%{transform:translate(-50%,-50%) scale(1.5) rotate(-10deg)}
+    25%{transform:translate(-50%,-50%) scale(1.35) rotate(10deg)}
+    35%{transform:translate(-50%,-50%) scale(1.45) rotate(-8deg)}
+    45%{transform:translate(-50%,-50%) scale(1.4) rotate(6deg);opacity:1}
+    100%{transform:translate(-50%,130px) scale(1) rotate(28deg);opacity:0}
+  }
+  .drip{position:fixed;z-index:50;font-size:20px;pointer-events:none;animation:drip .9s ease-in forwards}
+  @keyframes drip{
+    0%{transform:translate(0,0) scale(.9);opacity:1}
+    100%{transform:translate(var(--dx),110px) scale(.6);opacity:0}
+  }
+  .card.shake{animation:shakeX .45s ease}
+  @keyframes shakeX{
+    0%,100%{transform:translateX(0)}
+    20%{transform:translateX(-9px)} 40%{transform:translateX(8px)}
+    60%{transform:translateX(-6px)} 80%{transform:translateX(4px)}
+  }
+  canvas#fx{position:fixed;inset:0;pointer-events:none;z-index:40}
+</style>
+
+<canvas id="fx"></canvas>
+<div id="app"></div>
+
+<script>
+/* ================= questions ================= */
+const QUESTIONS = [
+  {q:"あさ、おきてさいしょにママのかおを見たら？", c:[
+    ["😊","「おはよ〜！」ってぎゅーしにいく！",3],
+    ["🙂","ふつうに「おはよう」って言う",2],
+    ["😪","ねむすぎて何も考えてない",1],
+    ["🙈","ふとんにもぐる…",0]]},
+  {q:"ママと2人だけでおでかけ！どんなきぶん？", c:[
+    ["🎀","パパもいっしょのほうがいいかな",1],
+    ["🥳","やったー！さいこう！",3],
+    ["🏠","おるすばんのほうがいい…",0],
+    ["😄","まあまあうれしい",2]]},
+  {q:"ママのてづくりごはん、どうおもう？", c:[
+    ["😋","せかいいちおいしい！レストランこえてる！",3],
+    ["🍙","おいしいよ、ふつうに",2],
+    ["🤔","メニューによる…",1],
+    ["🍔","ほんとはハンバーガーやさんがいい",0]]},
+  {q:"がっこうでいやなことがあったら、ママにはなす？", c:[
+    ["💬","すぐぜんぶはなす！",3],
+    ["🤫","ちょっとだけはなす",2],
+    ["🧸","ぬいぐるみにだけはなす",0],
+    ["👨","パパにははなすけど…",1]]},
+  {q:"ママのうた(はなうた)、どうおもう？", c:[
+    ["🎤","じょうず！いっしょにうたっちゃう！",3],
+    ["🎵","きいてるとたのしいきぶんになる",2],
+    ["😅","おんちだけど…かわいいとおもう",1],
+    ["🎧","イヤホンをそっとつける",0]]},
+  {q:"ママとおかいものにいくのは？", c:[
+    ["🛍️","デートみたいでだいすき！",3],
+    ["🙃","おかしをかってくれるならいく",1],
+    ["😊","たのしいよ",2],
+    ["🪑","フードコートでまってる",0]]},
+  {q:"ママの「はやくしなさーい！」って言うこえ、どうおもう？", c:[
+    ["⏰","わたしのためだってわかってる！",3],
+    ["😅","こわいけど、たしかにわたしがおそい",2],
+    ["🙉","きこえないふりのプロです",1],
+    ["🐢","いそがないのがわたしのポリシー",0]]},
+  {q:"ママのにおい、どうおもう？（ないしょね）", c:[
+    ["🌸","いいにおい！ずっとかいでいたい",3],
+    ["☺️","なんかあんしんするにおい",2],
+    ["😐","とくに何もおもわない",1],
+    ["🍛","きょうのばんごはんのにおいがする",0]]},
+  {q:"じゆうちょうに絵をかくなら、ママのにがおえ、かく？", c:[
+    ["👸","おひめさまみたいにかわいくかく！",3],
+    ["😆","おもしろいかおにしちゃうかも",2],
+    ["🌼","おはなのほうがかきたい",1],
+    ["❌","かかないよ〜",0]]},
+  {q:"ママとおててをつなぐのは？", c:[
+    ["🤝","じぶんからつなぎにいく！",3],
+    ["🫶","つないでくれたらつなぐ",2],
+    ["😳","おともだちに見られたらはずかしい…",1],
+    ["🙅‍♀️","もうつながないかな…",0]]},
+  {q:"おこづかい100まんえんもらったら、ママに何かかってあげる？", c:[
+    ["💸","ぜんぶじぶんのために使う！",0],
+    ["🍬","おかしくらいなら…",1],
+    ["💐","ママのほしいもの、ぜんぶかってあげる！",3],
+    ["💍","ちょっといいものをかってあげる",2]]},
+  {q:"ねるとき、ママといっしょがいい？", c:[
+    ["🛏️","ぜったいいっしょがいい！",3],
+    ["🌙","たまにいっしょだとうれしい",2],
+    ["📚","ひとりでねるれんしゅうちゅう",1],
+    ["😤","ひとりのほうがひろびろねられる",0]]},
+  {q:"ママがかなしそうなとき、どうする？", c:[
+    ["🫂","ぎゅーってだきしめてあげる",3],
+    ["👀","「どうしたの？」ってきいてみる",2],
+    ["🍫","おかしをそっとおいておく",1],
+    ["🚶‍♀️","そっとしておく（にげる）",0]]},
+  {q:"ママとおなじクラスだったら、ともだちになれそう？", c:[
+    ["🤔","たぶんなれる…かも？",2],
+    ["🙌","ぜったいしんゆうになれる！",3],
+    ["😬","ちょっとおせっかいすぎるかも…",1],
+    ["🏃","べつのクラスがいい",0]]},
+  {q:"ママのしゃしんをとるなら、どんなとき？", c:[
+    ["📸","にっこりわらってるしゅんかん！",3],
+    ["😜","へんがおのときにとる！",2],
+    ["😑","ねてるときにいたずらでとる",1],
+    ["🚫","とらないかな…",0]]},
+  {q:"「ママとパパ、どっちがすき？」ってきかれたら？", c:[
+    ["💞","どっちもだいすき！でもきょうはママかな💕",3],
+    ["🤭","その日によってかわる",2],
+    ["👨","パパ！そくとうでパパ！",1],
+    ["🍰","おやつがいちばん",0]]},
+  {q:"大きくなったら、ママみたいになりたい？", c:[
+    ["🙊","それはちょっと…べつのかんじがいい",1],
+    ["💖","うん！ママみたいなママになりたい！",3],
+    ["🤍","やさしいところだけにてたらいいな",2],
+    ["🧊","しょうらいのはなしはまだはやい",0]]},
+  {q:"ママがルールをまちがえて、わたしをおこっちゃった！どうする？", c:[
+    ["😤","ちゃんと「ちがうよ！」って言えばゆるす",2],
+    ["💗","あやまってくれたらすぐなかなおり！",3],
+    ["🍨","アイスをかってくれたらゆるす",1],
+    ["📓","いっしょうわすれないノートにかく",0]]},
+  {q:"10年後、ママとどうなっていたい？", c:[
+    ["☕","いっしょにカフェやおかいものにいきたい",2],
+    ["🌈","ずっとなかよしのおやこでいたい！",3],
+    ["📱","LINEはへんしんしてあげる",1],
+    ["🛸","そのころにはわすれてるかも",0]]},
+  {q:"さいごのしつもん！ママのこと、ほんとうは…？", c:[
+    ["🤫","す…すきじゃないんだからね！（ツンデレ）",2],
+    ["💖","うちゅうでいちばんだいすき！！",3],
+    ["😊","まあまあすき",1],
+    ["🕶️","いえにいる、ただのおねえさん",0]]},
+];
+
+const LEVELS = [
+  {min:54, lv:"レベルMAX", emo:"👑💖✨", title:"でんせつの ママだいすきエンジェル！",
+   msg:"けっかは…でんせつクラス！！あなたの「すき」はうちゅうのはてまでとどいてます🌟✨ このけっかをママに見せたら、ママはうれしくてハグがとまらなくなるでしょう。ぎゅーのじゅんびをしてから見せてね！💝"},
+  {min:42, lv:"レベル5", emo:"💖🌟💖", title:"ママLOVEプリンセス！",
+   msg:"ママのことがだ〜いすきなのが、キラキラつたわってきたよ💕 ちょっぴりてれやさんなところもあるけど、それもチャームポイント！きょう、ママに「うまれてきてよかった〜」って言ってみて。まほうがおきるよ🪄"},
+  {min:30, lv:"レベル4", emo:"🌷😊🌷", title:"ママすき おひめさま！",
+   msg:"ふだんはあんまり言わないけど、こころのなかではママのことちゃんとだいすきなタイプだね🌷 そういう「かくれママすき」は、ほんもののすきのしるし！たまにことばにすると、ママはもっとよろこぶよ〜"},
+  {min:18, lv:"レベル3", emo:"🍀😏🍀", title:"ツンデレちゃん！",
+   msg:"ツン80％、デレ20％…！でもね、ツンデレの「デレ」は100まんえんのかちがあるって、はかせが言ってたよ🧪 たまーにデレてあげると、ママはとんでよろこびます！"},
+  {min:6, lv:"レベル2", emo:"☁️🙈☁️", title:"はずかしがりや さん？",
+   msg:"ほんとうは…すきなんじゃないかな〜？👀 すなおになれない日って、あるよね。でもだいじょうぶ、ママはどんなときでも、あなたのこと せかいいちだいすきだよ💝"},
+  {min:0, lv:"レベル1", emo:"🌀🤨🌀", title:"はんこうき…？とうらいちゅう！",
+   msg:"おっと、きょうはママにきびしい日みたい！🌪️ でもこのしんだんには、ひみつがあります。さいごまでやったじてんで、ほんとうは「ママのことが気になってる」しょうこなのです…ふふふ😏💕"},
+];
+
+/* ================= sound (WebAudio, no files) ================= */
+let AC=null;
+function ac(){ if(!AC) AC=new (window.AudioContext||window.webkitAudioContext)(); if(AC.state==='suspended')AC.resume(); return AC; }
+function tone(f,t0,dur,type='sine',vol=.15){
+  const a=ac(),o=a.createOscillator(),g=a.createGain();
+  o.type=type;o.frequency.value=f;
+  g.gain.setValueAtTime(vol,a.currentTime+t0);
+  g.gain.exponentialRampToValueAtTime(.001,a.currentTime+t0+dur);
+  o.connect(g).connect(a.destination);
+  o.start(a.currentTime+t0);o.stop(a.currentTime+t0+dur+.05);
+}
+const sPop =()=>{try{tone(660,0,.09,'triangle',.2);tone(990,.05,.1,'triangle',.15)}catch(e){}};
+const sYay =()=>{try{[660,880,1100,1320].forEach((f,i)=>tone(f,i*.06,.14,'triangle',.18))}catch(e){}};
+const sCombo=n=>{try{
+  [880,1100,1320,1568,1760,2093,2349].slice(0,Math.min(2+n,7)).forEach((f,i)=>tone(f,i*.05,.12,'triangle',.2));
+  if(n>=5)tone(2637,.38,.3,'triangle',.15);
+  if(n>=10)[1047,1319,1568,2093].forEach((f,i)=>tone(f,.5+i*.08,.35,'triangle',.18));
+}catch(e){}};
+const sSad =()=>{try{tone(330,0,.18,'triangle',.16);tone(262,.18,.2,'triangle',.15);tone(185,.38,.4,'sawtooth',.08)}catch(e){}};
+const sStart=()=>{try{[523,659,784,1047].forEach((f,i)=>tone(f,i*.09,.18,'triangle',.18))}catch(e){}};
+const sDrum =()=>{try{for(let i=0;i<14;i++)tone(180+Math.random()*40,i*.12,.06,'square',.06)}catch(e){}};
+const sFanfare=()=>{try{[523,659,784,1047,784,1047,1319,1568].forEach((f,i)=>tone(f,.1+i*.13,.25,'triangle',.2))}catch(e){}};
+
+/* ================= bg decorations ================= */
+const HEARTS=['💖','💗','🩷','💕','🎀','✨'];
+for(let i=0;i<14;i++){
+  const s=document.createElement('div');
+  s.className='bg-heart';s.textContent=HEARTS[i%HEARTS.length];
+  s.style.left=(Math.random()*96)+'vw';
+  s.style.fontSize=(16+Math.random()*26)+'px';
+  s.style.animationDuration=(9+Math.random()*12)+'s';
+  s.style.animationDelay=(-Math.random()*14)+'s';
+  document.body.appendChild(s);
+}
+const PETALS=['🌸','🌷','💮'];
+for(let i=0;i<10;i++){
+  const p=document.createElement('div');
+  p.className='petal';p.textContent=PETALS[i%PETALS.length];
+  p.style.left=(Math.random()*96)+'vw';
+  p.style.fontSize=(14+Math.random()*18)+'px';
+  p.style.animationDuration=(8+Math.random()*10)+'s';
+  p.style.animationDelay=(-Math.random()*16)+'s';
+  document.body.appendChild(p);
+}
+for(let i=0;i<18;i++){
+  const t=document.createElement('div');
+  t.className='star';t.textContent=['✨','⭐','💫'][i%3];
+  t.style.left=(Math.random()*96)+'vw';
+  t.style.top=(Math.random()*94)+'vh';
+  t.style.fontSize=(8+Math.random()*14)+'px';
+  t.style.animationDuration=(1.6+Math.random()*2.4)+'s';
+  t.style.animationDelay=(-Math.random()*3)+'s';
+  document.body.appendChild(t);
+}
+
+/* ================= fx canvas: confetti + fireworks ================= */
+const cv=document.getElementById('fx'),cx=cv.getContext('2d');
+let parts=[],fxOn=false,fireworksUntil=0;
+function fit(){cv.width=innerWidth;cv.height=innerHeight}
+fit();addEventListener('resize',fit);
+const COLORS=['#ff7eb3','#f2568f','#b18cff','#ffd66b','#7ed6ff','#fff','#ffb347'];
+function burstConfetti(){
+  for(let i=0;i<160;i++){
+    parts.push({kind:'c',
+      x:Math.random()*cv.width, y:-20-Math.random()*cv.height*.5,
+      vx:(Math.random()-.5)*2, vy:2+Math.random()*3.5,
+      r:4+Math.random()*6, rot:Math.random()*6.28, vr:(Math.random()-.5)*.25,
+      c:COLORS[i%COLORS.length], heart:Math.random()<.3, life:1});
+  }
+}
+function firework(x,y){
+  const base=Math.random()*6.28, c=COLORS[Math.floor(Math.random()*COLORS.length)];
+  for(let i=0;i<36;i++){
+    const a=base+i/36*6.28, sp=2.2+Math.random()*2.6;
+    parts.push({kind:'f',x,y,vx:Math.cos(a)*sp,vy:Math.sin(a)*sp,
+      r:2+Math.random()*2.5,c,life:1,decay:.012+Math.random()*.01});
+  }
+}
+let rafActive=false;
+function ensureTick(){if(!rafActive){rafActive=true;requestAnimationFrame(tick)}}
+function startFx(dur){
+  fxOn=true;fireworksUntil=performance.now()+dur;
+  burstConfetti();
+  ensureTick();
+  setTimeout(()=>fxOn=false,dur+3000);
+}
+let lastFw=0;
+function tick(t){
+  cx.clearRect(0,0,cv.width,cv.height);
+  if(t<fireworksUntil && t-lastFw>420){
+    lastFw=t;
+    firework(cv.width*(.15+Math.random()*.7), cv.height*(.12+Math.random()*.4));
+  }
+  parts.forEach(p=>{
+    if(p.kind==='c'){
+      p.x+=p.vx;p.y+=p.vy;p.rot+=p.vr;
+      cx.save();cx.translate(p.x,p.y);cx.rotate(p.rot);
+      if(p.heart){cx.font=p.r*2.4+'px serif';cx.fillText('💗',-p.r,p.r)}
+      else{cx.fillStyle=p.c;cx.fillRect(-p.r/2,-p.r,p.r,p.r*2)}
+      cx.restore();
+    }else{
+      p.x+=p.vx;p.y+=p.vy;p.vy+=.045;p.life-=p.decay;
+      cx.globalAlpha=Math.max(0,p.life);
+      cx.fillStyle=p.c;
+      cx.beginPath();cx.arc(p.x,p.y,p.r,0,6.28);cx.fill();
+      cx.globalAlpha=1;
+    }
+  });
+  parts=parts.filter(p=>p.kind==='c'?p.y<cv.height+30:p.life>0);
+  if(parts.length||fxOn)requestAnimationFrame(tick);
+  else{rafActive=false;cx.clearRect(0,0,cv.width,cv.height)}
+}
+
+/* ================= answer reactions ================= */
+function spawnFly(x,y,emoji,delay,spread,up){
+  const h=document.createElement('div');
+  h.className='fly';h.textContent=emoji;
+  h.style.left=x+'px';h.style.top=y+'px';
+  h.style.setProperty('--dx',(Math.random()*spread*2-spread)+'px');
+  h.style.setProperty('--dy',-(up+Math.random()*60)+'px');
+  h.style.animationDelay=delay+'s';
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),1400);
+}
+let combo=0;
+const COMBO_LABELS={
+  2:"💖 2れんぞく だいすき！ 💖",
+  3:"💖✨ 3れんぞく すご〜い！ ✨💖",
+  4:"🌟 4れんぞく キラキラ！ 🌟",
+  5:"🌈 5れんぞく ミラクル！ 🌈",
+  6:"👑 6れんぞく プリンセスきゅう！ 👑",
+  7:"🎆 7れんぞく スーパーミラクル！ 🎆",
+  8:"💎 8れんぞく でんせつまぢか！ 💎",
+  9:"🚀 9れんぞく うちゅうきゅう！ 🚀",
+};
+function comboLabel(n){
+  return n>=10?`👑🌈 ${n}れんぞく でんせつの だいすきコンボ！！ 🌈👑`:COMBO_LABELS[n];
+}
+function comboFx(x,y,n){
+  const t=Math.min(n,10); // 演出の強さは10でカンスト
+  sCombo(n);
+  /* popup: コンボが上がるほど大きく */
+  const c=document.createElement('div');
+  c.className='combo';c.textContent=comboLabel(n);
+  c.style.fontSize=`clamp(${22+t*2}px,${6+t*.5}vw,${34+t*2}px)`;
+  document.body.appendChild(c);
+  setTimeout(()=>c.remove(),1200);
+  /* ハート: 数もひろがりもコンボで増加 */
+  const nH=Math.min(10+t*3,40);
+  const POOL=HEARTS.concat(['💘','⭐','🌸','💝','🌟']);
+  for(let i=0;i<nH;i++)spawnFly(x,y,POOL[i%POOL.length],i*.03,150+t*12,160+t*10);
+  /* 3+: 金色リング波紋 */
+  if(t>=3){
+    for(let i=0;i<Math.min(t-1,4);i++){
+      const rg=document.createElement('div');
+      rg.className='ring'+(i%2?' pink':'');
+      rg.style.left=x+'px';rg.style.top=y+'px';
+      rg.style.animationDelay=(i*.14)+'s';
+      document.body.appendChild(rg);
+      setTimeout(()=>rg.remove(),1400);
+    }
+  }
+  /* 4+: 花火(クリック地点+上空) */
+  if(t>=4){
+    firework(x,y-60);
+    for(let i=0;i<Math.min(t-3,5);i++)
+      setTimeout(()=>firework(cv.width*(.15+Math.random()*.7), cv.height*(.1+Math.random()*.35)),150+i*180);
+    ensureTick();
+  }
+  /* 5+: 画面フラッシュ(10+はレインボー) */
+  if(t>=5){
+    const f=document.createElement('div');
+    f.className='flash'+(t>=10?' rainbow':'');
+    document.body.appendChild(f);
+    setTimeout(()=>f.remove(),1300);
+  }
+  /* 6+: ハートの雨(8+は👑💎入り) */
+  if(t>=6){
+    const RAIN=t>=8?['💖','👑','💗','💎','🩷','⭐','👑','💝']:['💖','💗','🩷','💕','⭐','🌸'];
+    const nR=6+t*2;
+    for(let i=0;i<nR;i++){
+      const d=document.createElement('div');
+      d.className='rain';d.textContent=RAIN[i%RAIN.length];
+      d.style.left=(Math.random()*96)+'vw';
+      d.style.fontSize=(16+Math.random()*20)+'px';
+      d.style.animationDuration=(1.1+Math.random()*.9)+'s';
+      d.style.animationDelay=(Math.random()*.5)+'s';
+      document.body.appendChild(d);
+      setTimeout(()=>d.remove(),2600);
+    }
+  }
+  /* 10: 花火いっせいうちあげ */
+  if(t>=10){
+    for(let i=0;i<6;i++)
+      setTimeout(()=>firework(cv.width*(.1+Math.random()*.8), cv.height*(.08+Math.random()*.45)),i*140);
+    ensureTick();
+  }
+}
+function reactAnswer(x,y,pts){
+  if(pts===3){
+    combo++;
+    if(combo>=2){
+      comboFx(x,y,combo);
+    }else{
+      sYay();
+      ['💖','💗','🩷','💕','✨','🌸','💖','🎀','💘','⭐'].forEach((e,i)=>spawnFly(x,y,e,i*.04,150,160));
+    }
+  }else if(pts===2){
+    combo=0;sPop();
+    ['💖','💗','✨'].forEach((e,i)=>spawnFly(x,y,e,i*.06,60,120));
+  }else if(pts===1){
+    combo=0;sPop();
+    spawnFly(x,y,'🩷',0,30,80);
+  }else{
+    combo=0;sSad();
+    const h=document.createElement('div');
+    h.className='broken';h.textContent='💔';
+    h.style.left=x+'px';h.style.top=y+'px';
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),1300);
+    ['💧','🩶','💧'].forEach((e,i)=>{
+      const d=document.createElement('div');
+      d.className='drip';d.textContent=e;
+      d.style.left=(x+(i-1)*22)+'px';d.style.top=y+'px';
+      d.style.setProperty('--dx',((i-1)*30)+'px');
+      d.style.animationDelay=(.35+i*.08)+'s';
+      document.body.appendChild(d);
+      setTimeout(()=>d.remove(),1600);
+    });
+    const card=app.querySelector('.card');
+    if(card)card.classList.add('shake');
+  }
+}
+
+/* ================= app ================= */
+const app=document.getElementById('app');
+let idx=0,score=0;
+const MAX=QUESTIONS.length*3;
+const CORNERS='<span class="corner tl">🌸</span><span class="corner tr">🎀</span><span class="corner bl">🎀</span><span class="corner br">🌸</span>';
+
+function swapCard(html,cb){
+  const old=app.querySelector('.card');
+  if(old){old.classList.add('out');setTimeout(()=>{app.innerHTML=html;cb&&cb()},260)}
+  else{app.innerHTML=html;cb&&cb()}
+}
+
+function showStart(){
+  idx=0;score=0;combo=0;
+  swapCard(`
+  <div class="card">${CORNERS}
+    <span class="crown">👑</span><br>
+    <span class="big-heart">💖</span>
+    <h1>ママすきレベル<br>しんだん</h1>
+    <p class="sub">20このしつもんにこたえると…<br>あなたの「ママすきレベル」がわかっちゃう！?<br>すなおにこたえてね🎀<br><small>「だいすき」がつづくと、コンボがおきるよ…！✨</small></p>
+    <button class="btn start" id="startBtn">しんだんスタート！</button>
+  </div>`,
+  ()=>{document.getElementById('startBtn').onclick=()=>{sStart();showQ()}});
+}
+
+function showQ(){
+  const q=QUESTIONS[idx];
+  const opts=[...q.c];
+  for(let i=opts.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[opts[i],opts[j]]=[opts[j],opts[i]];}
+  const pct=Math.round(idx/QUESTIONS.length*100);
+  swapCard(`
+  <div class="card">
+    <div class="prog-label"><span>しつもん ${idx+1} / ${QUESTIONS.length}</span><span>ゴールまであと${QUESTIONS.length-idx}こ！</span></div>
+    <div class="prog"><div id="pbar"></div></div>
+    <span class="q-num-badge">👑 だい ${idx+1} もん</span>
+    <p class="q-text">${q.q}</p>
+    ${opts.map((c,i)=>`<button class="btn choice" data-i="${i}"><span class="em">${c[0]}</span><span>${c[1]}</span></button>`).join('')}
+  </div>`,
+  ()=>{
+    requestAnimationFrame(()=>requestAnimationFrame(()=>{
+      document.getElementById('pbar').style.width=pct+'%';
+    }));
+    app.querySelectorAll('.choice').forEach(b=>{
+      b.onclick=e=>{
+        app.querySelectorAll('.choice').forEach(x=>x.disabled=true);
+        const pts=opts[+b.dataset.i][2];
+        reactAnswer(e.clientX||innerWidth/2, e.clientY||innerHeight/2, pts);
+        score+=pts;
+        idx++;
+        const wait=pts===0?650:(pts===3&&combo>=2?Math.min(450+combo*40,850):220);
+        setTimeout(()=> idx<QUESTIONS.length?showQ():showDrum(),wait);
+      };
+    });
+  });
+}
+
+function showDrum(){
+  sDrum();
+  swapCard(`
+  <div class="card">${CORNERS}
+    <span class="big-heart">🥁</span>
+    <h1>けっかはっぴょう…！</h1>
+    <p class="sub drum">ドキドキ ドキドキ…</p>
+  </div>`);
+  setTimeout(showResult,1900);
+}
+
+function showResult(){
+  const pct=Math.round(score/MAX*100);
+  const lv=LEVELS.find(l=>score>=l.min);
+  const nH=Math.max(1,Math.round(pct/10));
+  const hearts='💖'.repeat(nH)+'🤍'.repeat(10-nH);
+  sFanfare();
+  swapCard(`
+  <div class="card">${CORNERS}
+    <span class="crown">👑</span>
+    <div class="lv-label">あなたのママすきレベルは…</div>
+    <div class="lv-title">${lv.emo}<br>${lv.lv}！<br>「${lv.title}」</div>
+    <div class="pct"><span id="cnt">0</span><small> %</small></div>
+    <div class="gauge-wrap"><div class="gauge"><div id="gfill"></div></div></div>
+    <div class="hearts-row" id="hrow"></div>
+    <div class="msg">${lv.msg}</div>
+    <button class="btn again" id="againBtn">もういちど しんだんする🔁</button>
+  </div>`,
+  ()=>{
+    startFx(pct>=70?5200:2600);
+    requestAnimationFrame(()=>requestAnimationFrame(()=>{
+      document.getElementById('gfill').style.width=pct+'%';
+    }));
+    const el=document.getElementById('cnt');
+    const t0=performance.now(),dur=2200;
+    (function step(t){
+      const k=Math.min(1,(t-t0)/dur);
+      el.textContent=Math.round(pct*(1-Math.pow(1-k,3)));
+      if(k<1)requestAnimationFrame(step);
+    })(t0);
+    const hr=document.getElementById('hrow');
+    [...hearts].forEach((h,i)=>setTimeout(()=>{hr.textContent+=h; if(h==='💖')sPop()},400+i*180));
+    document.getElementById('againBtn').onclick=()=>{parts=[];showStart()};
+  });
+}
+
+showStart();
+</script>
