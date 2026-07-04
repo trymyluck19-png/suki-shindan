@@ -1,0 +1,48 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>すきすきレベルしんだん💖</title>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@700;900&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    font-family:'Zen Maru Gothic','Hiragino Maru Gothic ProN',sans-serif;font-weight:700;
+    background:linear-gradient(160deg,#ffd6e8,#ffe9f3 40%,#e8dcff);
+    display:flex;align-items:center;justify-content:center;color:#5a4a5f;overflow:hidden;
+  }
+  .bgh{position:fixed;bottom:-60px;opacity:.5;pointer-events:none;animation:up linear infinite}
+  @keyframes up{to{transform:translateY(-115vh) rotate(20deg)}}
+  .card{
+    background:rgba(255,255,255,.93);border-radius:32px;padding:40px 30px;text-align:center;
+    width:min(480px,92vw);box-shadow:0 18px 50px rgba(242,86,143,.25), inset 0 0 0 4px #ffe3ef;
+  }
+  h1{font-size:clamp(24px,6vw,32px);font-weight:900;line-height:1.5;
+    background:linear-gradient(90deg,#f2568f,#b18cff,#f2568f);background-size:200% auto;
+    -webkit-background-clip:text;background-clip:text;color:transparent;animation:sh 3s linear infinite}
+  @keyframes sh{to{background-position:200% center}}
+  p{margin-top:12px;font-size:15px;line-height:1.9}
+  a.btn{
+    display:flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;
+    font-size:20px;font-weight:900;color:#fff;padding:18px;margin-top:18px;border-radius:50px;
+  }
+  a.papa{background:linear-gradient(135deg,#6bb7ff,#3f8fe8);box-shadow:0 6px 0 #2f74c4}
+  a.mama{background:linear-gradient(135deg,#ff7eb3,#f2568f);box-shadow:0 6px 0 #d8437c}
+  a.btn:active{transform:translateY(4px);box-shadow:none}
+  .em{font-size:26px}
+</style>
+<div class="card">
+  <h1>すきすきレベル<br>しんだん 💖</h1>
+  <p>どっちのしんだんをやってみる？<br>20このしつもんで「すきレベル」がわかるよ！</p>
+  <a class="btn papa" href="./papa/"><span class="em">🧢</span>パパすきレベルしんだん</a>
+  <a class="btn mama" href="./mama/"><span class="em">👑</span>ママすきレベルしんだん</a>
+</div>
+<script>
+['💖','💗','🩷','🌸','✨','🎀'].forEach((e,i)=>{
+  for(let k=0;k<3;k++){
+    const d=document.createElement('div');d.className='bgh';d.textContent=e;
+    d.style.left=(Math.random()*96)+'vw';d.style.fontSize=(16+Math.random()*26)+'px';
+    d.style.animationDuration=(9+Math.random()*12)+'s';d.style.animationDelay=(-Math.random()*15)+'s';
+    document.body.appendChild(d);
+  }
+});
+</script>
